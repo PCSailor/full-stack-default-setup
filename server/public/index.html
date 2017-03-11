@@ -23,9 +23,10 @@
     <!-- NOTE: END Scripts -->
     <title>title</title>
   </head>
-  <body ng-app="App"> <!-- NOTE: 'App' matched with client.js -->
+  <body ng-app="IndexApp"> <!-- NOTE: 'App' matched with client.js -->
+<header class="jumbotron text-center" ng-include="'views/templates/nav.html'"></header>
 <h1>Default-Stack</h1>
-<header ng-include="'views/templates/nav.html'"></header>
+<nav ng-include=" ''/views/templates/nav.html'"></nav>
 <main ng-view></main>
   </body>
 </html>
