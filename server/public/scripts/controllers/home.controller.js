@@ -1,22 +1,12 @@
-appVariable.controller('DefaultController', ['DefaultFactory', function(DefaultFactory) {
+appVariable.controller('HomeController', ['DefaultFactory', function(DefaultFactory) {
 // NOTE:  AppVariable is defined in client.js/var AppVariable = angular.module('App', ['ngRoute']);
 // NOTE:  DefaultController must match clientJs/.when-controller
 // NOTE:  1st DefaultFactory is the dependency and must match the factory name in the first code line of the factory.js file
 // NOTE:  2nd DefaultFactory is used within this file to reference the data needed for the factory.js file.
 
-console.log('controller.js file is loaded');
+console.log('home.controller.js file is loaded');
 var self = this;
-self.newApp = {}; // TODO:
-self.appList = DefaultFactory.allApps; // TODO:
 
-self.addApp = function() {
-  DefaultFactory.addApp(self.newApp);
-}
-
-self.deleteApp = function(appId) {
-  DefaultFactory.deleteApp(appId);
-}
-
-
+self.someMessage = 'message from Home.html';
 
 }]);

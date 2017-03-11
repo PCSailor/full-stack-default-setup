@@ -1,17 +1,24 @@
-var AppVariable = angular.module('IndexApp', ['ngRoute']);
+var appVariable = angular.module('IndexApp', ['ngRoute']);
 // NOTE: IndexApp matched to index.html/ng-app="IndexApp"
-// NOTE: ngRoute is always matched to index.html/ng-view AND is dependency of 'angular-route.js' script
+// NOTE: ngRoute is always matched to index.html/ng-view AND is dependency of 'angular-route.js' script.  What is selected with the .config function (below) is placed into the index.html/ng-view area of the webpage.
 // NOTE: AppVariable is set for
 console.log("client.js loaded");
-AppVariable.config(['$routeProvider', function($routeProvider) {
+appVariable.config(['$routeProvider', function($routeProvider) {
   $routeProvider
-  .when('/defaultPage', {
-    defaultUrl: '/views/templates/defaultpage.html',
-    controller: 'DefaultController',
-    controllerAs: 'dc'
-  })  // NOTE: semi-colon not needed here
-  // .otherwise({
-  //   redirectTo: 'index'
-  // });  // NOTE: but semi-colon is needed here
+
+  .when('/home', {
+    templateUrl: '/views/templates/home.html',
+    controller: 'HomeController',
+    controllerAs: 'hc'
+  })
+
+.when('/defaultPage', {
+  templateUrl: '/views/templates/defaultpage.html',
+  controller: 'DefaultController',
+  controllerAs: 'dc'
+})  // NOTE: semi-colon not needed here
+console.log('AppVariable.config code is run');
+// .otherwise({
+//   redirectTo: 'index'
+// });  // NOTE: but semi-colon is needed here
 }]);
-// NOTE: END OF CODE

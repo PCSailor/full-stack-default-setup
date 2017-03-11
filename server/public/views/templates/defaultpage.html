@@ -1,17 +1,33 @@
 <body>
-<table>
+
+<label>New App</label>
+<input ng-model="dc.newApp.appName">
+<button ng-click="dc.addApp()">Add App</button>
+<div ng-repeat="app in dc.appList.list" ng-class="{complete: app.status, active: !app.status}" class="row col-xs-12">
+  <span class="col-xs-6">{{app}} the status is {{app.status}}</span>
+  <!-- <span class="col-xs-3" ng-hide="app.status">
+  <button ng-click="dc.updateApp(app.id)" class="btn btn-primary">Active</button>
+  </span>
+  <span class="col-xs-3" ng-show="app.status">
+  <button ng-click="dc.updateApp(app.id)" class="btn btn-primary">Inactive</button>
+  </span> -->
+  <span class="col-xs-3">
+    <button ng-click="dc.deleteApp(appId)" class="btn btn-danger">Delete App</button>
+  </span>
+</div>
+</body>
+
+
+<!-- <table>
   <thead>
 <tr>
-  <td>Header01</td>
-  <td>Header02</td>
+  <td>DefaultPage.html/Header01</td>
+  <td>DefaultPage.html/Header02</td>
 </tr>
   </thead>
   <tbody>
-    <!-- <tr ng-repeat="sumName in dc.default.<data-back-from-db>"></tr> -->
     <tr ng-repeat="sumName in dc.default"></tr>
     <td>{{defaulttwo.defaultone}}</td>
     <td>{{defaultthree.defaultone}}</td>
-    <!-- TODO: need some identification here!! -->
   </tbody>
-</table>
-</body>
+</table> -->

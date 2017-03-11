@@ -37,9 +37,7 @@ router.get('/', function(req, res) {
 // NOTE: Create new App
 router.post('/', function(req, res) {
   console.log('routes.js/router.post (Create new App) reached');
-
   var appObject = req.body;
-
   pool.connect(function(err, client, done) {
     if (err) {
       console.log('error on routes.js/router.post-pool.connect', err);
@@ -64,9 +62,6 @@ router.delete('/:id', function(req, res) {
   var appToDelete = req.params.id;
   console.log('routes.js/router.delete (Delete App) reached');
   console.log('appToDelete = ', appToDelete););
-
-
-
   pool.connect(function(err, client, done) {
     if (err) {
       console.log('error on routes.js/router.delete-pool.connect', err);
@@ -86,7 +81,29 @@ router.delete('/:id', function(req, res) {
   });
 });
 
-
+// NOTE: Update App
+router.put('/:id', function(req, res) {
+  var appToUpdate = req.params.id;
+  console.log('routes.js/router.put (UpdateApp) reached');
+  console.log('appToUpdate = ', appToUpdate););
+  pool.connect(function(err, client, done) {
+    if (err) {
+      console.log('error on routes.js/router.put-pool.connect', err);
+      res.sendStatus(500);
+    } else {
+      client.query('UPDATE app SET status=TRUE WHERE ID=$1;',
+      [appToUpdate], function(err, result) {
+        done();
+        if(err) {
+          console.log('error on routes.js/router.put-client.query-Update', err);
+          res.sendStatus(500);
+        } else {
+          res.sendStatus(201);
+        }
+      });
+    }
+  });
+});
 
 
 module.exports = router;
