@@ -1,4 +1,4 @@
-appVariable.factory('DefaultFactory', ['$http', function($http) {
+appVarDefinedInClientJs.factory('DefaultFactory', ['$http', function($http) {
   // NOTE: factory is a dependency that controller.js is needs AND must have a return
   console.log('default.factory.js is run');
 
@@ -38,7 +38,7 @@ var factoryApps = { list: [] };  // NOTE: from controller.js AND must be a prope
 
 return {  // NOTE: returning $http function
   // NOTE: Inside this return is the public API, if it's not in here, your controller won't see it
-  allApps: factoryApps, // NOTE: allApps from // TODO: AND factoryApps fromvariable created above
+allApps: factoryApps, // NOTE: allApps from // TODO: AND factoryApps from variable created above
   // updateApps: getApps()  // TODO: // NOTE: refers to function getApps()
   // QUESTION: updateTasks refers to the GET function in this file only?
   // addApp: addApp, // NOTE: 1st addApp from // TODO: AND 2nd addApp from // TODO:

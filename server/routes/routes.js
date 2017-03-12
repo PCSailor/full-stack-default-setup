@@ -9,31 +9,31 @@ var config = {
   max: 10,
   idleTimeoutMillis: 30000
 };
-
 var pool = new pg.Pool(config);
 
 // NOTE: Get all apps
-router.get('/', function(req, res) {
-  console.log('routes.js/router.get (Get all Apps) reached');
-  pool.connect(function(err, client, done) {
-    if(err) {
-      console.log('error on routes.js/router.get-pool.connect', err);
-      res.sendStatus(500);
-    } else {
-      // NOTE: Database Query
-      client.query('SELECT * FROM app ORDER BY status, id asc;', function(err, result) {
-        done(); // NOTE: Close the database connection
-        if(err) {
-          console.log('error on routes.js/router.get-client.query', err);
-          res.sendStatus(500);
-        } else {
-          console.log(result.rows);
-          res.status(200).send(result.rows);
-        }
-      });
-    }
-  });
-});
+// router.get('/', function(req, res) {
+//   console.log('routes.js/router.get (Get all Apps) reached');
+//   pool.connect(function(err, client, done) {
+//     if(err) {
+//       console.log('error on routes.js/router.get-pool.connect', err);
+//       res.sendStatus(500);
+//     }else{
+//       // NOTE: Database Query
+//       // client.query('SELECT * FROM app ORDER BY status, id asc;', function(err, result) {
+//       client.query('SELECT * FROM app;', function(err, result) {
+//         done(); // NOTE: Close the database connection
+//         if(err){
+//           console.log('error on routes.js/router.get-client.query', err);
+//           res.sendStatus(500);
+//         }else{
+//           console.log(result.rows);
+//           res.status(200).send(result.rows);
+//         }
+//       });
+//     }
+//   });
+// });
 //
 // // NOTE: Create new App
 // router.post('/', function(req, res) {
