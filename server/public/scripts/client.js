@@ -18,11 +18,11 @@ appVarDefinedInClientJs.config(['$routeProvider', function($routeProvider) {
     controllerAs: 'alc'
   })
 
-// .when('/defaultPage', {
-//   templateUrl: '/views/templates/defaultpage.html',
-//   controller: 'DefaultController',
-//   controllerAs: 'dc'
-// })  // NOTE: semi-colon not needed here
+.when('/defaultWebpage', {
+  templateUrl: '/views/templates/defaultpage.html',
+  controller: 'DefaultController',
+  controllerAs: 'dc'
+})  // NOTE: semi-colon not needed here
 console.log('appVarDefinedInClientJs.config code is run');
 // .otherwise({
 //   redirectTo: 'index'
